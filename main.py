@@ -5,14 +5,18 @@ import math
 
 # The events A and B are defined as equivalents when PA(x) = PB(x)
 
-# Bernoulli Distribution
+#  - Bernoulli Distribution -
 
+# Implementation of a Bernoulli Distribution with "n" total trials, and "x" successful ones.
+# Which "p" is the probability of success.
 def bernoulli_distribution(n, x, p):
     prob = math.comb(n, x) * math.pow(p, x) * math.pow(1 - p, n - x)
 
     return prob
 
 
+# Implementation of a Bernoulli Distribution with "n" total trials, and at least "minvalue" successful ones.
+# Which "p" is the probability of success.
 def bernoulli_distribution_min(n, minvalue, p):
     total_sum = 0
     for i in range(n - minvalue + 1):
