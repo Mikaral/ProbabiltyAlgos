@@ -1,22 +1,21 @@
-# Este projeto objetiva explicar e implementar as diversas funções do estudo de variáveis discretas
-# da cadeira de Probabilidade e Estatística.
+# A simple implementation of some probability distributions using Python.
 
 import math
 
 
-# Os eventos A e B são definidos como equivalentes quando PA(x) = PB(x)
+# The events A and B are defined as equivalents when PA(x) = PB(x)
 
-# Ensaio de Bernoulli
+# Bernoulli Distribution
 
-def ensaio_bernoulli(n, x, p):
+def bernoulli_distribution(n, x, p):
     prob = math.comb(n, x) * math.pow(p, x) * math.pow(1 - p, n - x)
 
     return prob
 
 
-def ensaio_bernoulli_min(n, minvalue, p):
-    soma = 0
+def bernoulli_distribution_min(n, minvalue, p):
+    total_sum = 0
     for i in range(n - minvalue + 1):
-        soma += ensaio_bernoulli(n, minvalue + i, p)
+        total_sum += bernoulli_distribution(n, minvalue + i, p)
 
-    return soma
+    return total_sum
