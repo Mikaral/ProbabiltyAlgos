@@ -23,3 +23,17 @@ def bernoulli_distribution_min(n, minvalue, p):
         total_sum += bernoulli_distribution(n, minvalue + i, p)
 
     return total_sum
+
+
+# Implementation of expected values on discrete variables.
+def expected_value(x_values, probs_x):
+    sum_probs = 0
+    size = len(x_values)
+
+    if size != len(probs_x):
+        print("Incompatible sizes")
+    else:
+        for i in range(size):
+            sum_probs += x_values[i] * probs_x[i]
+
+    return sum_probs
