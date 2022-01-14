@@ -44,6 +44,16 @@ def expected_value_continuous(interval, expr):
 def variance(x_values, probs_x):
     return expected_value(list(map(power, x_values)), probs_x) - math.pow(expected_value(x_values, probs_x), 2)
 
+# An alternative implementation of of Variance on discrete variables, which "x_values" are all the values of x
+# and "probs_x" are the respective probabilities of each x value.
+def variance_efficient(x_values, probs_x):
+    array = []
+
+    for x in x_values:
+        array.append(power(x))
+    
+    return expected_value(array, x_values) - math.pow(expected_value(x_values, probs_x), 2)
+
 
 # Implementation of Variance on continuous variables, which "interval" is an 2-size array
 # of the interval used on the integral and expr is a string expressing the function.
